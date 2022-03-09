@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Iphone 13",
+    "description": "Iphone roduct",
+    "price": 60000,
+    "rating": 5,
+    "image": "assets/iphone13.jpg",
+    "featured": true,
+    "category": "mobile",
+    "publishDate": "Sun Feb 27 2022 12:14:17 GMT+0530 (India Standard Time)",
+    "code": "M-001"
+  },
+  {
+    "id": 2,
+    "name": "Samsung",
+    "description": "samsung product ",
+    "price": 40000,
+    "rating": 4.5,
+    "image": "assets/samsung.jpg",
+    "featured": true,
+    "category": "mobile",
+    "publishDate": "Sun Feb 27 2022 12:14:17 GMT+0530 (India Standard Time)",
+    "code": "M-002"
+  },
+  {
+    "id": 3,
+    "name": "L G",
+    "description": "L G product ",
+    "price": 30000,
+    "rating": 4,
+    "image": "assets/lg.jpg",
+    "featured": true,
+    "category": "TV",
+    "publishDate": "Sun Feb 27 2022 12:14:17 GMT+0530 (India Standard Time)",
+    "code": "TV-001"
+  },
+  {
+    "id": 4,
+    "name": "whirpool",
+    "description": "whirpool product ",
+    "price": 20000,
+    "rating": 4.5,
+    "image": "assets/whirpool.jpg",
+    "featured": true,
+    "category": "Washing Machine",
+    "publishDate": "Sun Feb 27 2022 12:14:17 GMT+0530 (India Standard Time)",
+    "code": "WM-001"
+  },
+  {
+    "id": 5,
+    "name": "FastTrack",
+    "description": "fastrack product ",
+    "price": 10000,
+    "rating": 5,
+    "image": "assets/fastrack.jpg",
+    "featured": true,
+    "category": "Watch",
+    "publishDate": "Sun Feb 27 2022 12:14:17 GMT+0530 (India Standard Time)",
+    "code": "w-001"
+  }
+]

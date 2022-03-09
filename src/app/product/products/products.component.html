@@ -1,0 +1,216 @@
+<!--
+<div>
+  <p>{{ product.id }}</p>
+  <p>{{ product.name }}</p>
+  <p>{{ product.description }}</p>
+</div>
+ square brackets will make a attribute a property
+ remove curly braces use normal syntax
+ 2 exceptions in binding style and class
+
+
+-->
+
+<!--
+<div class="container">
+  <button
+    class="btn btn-primary upper-button mt-5 mb-5"
+    (click)="clickMe($event)"
+  >
+    click
+  </button>
+</div>
+
+-->
+<!-- <button
+  class="btn btn-primary upper-button mt-5 mb-5"
+  (click)="unsubscribeCounter()"
+>
+  Unsubscribe counter
+</button>
+-->
+
+<!-- <div class="div">{{ counter }}</div> -->
+
+<div class="container">
+  <div class="row mb-3 mt-3">
+    <div class="col">
+      <!-- search bar -->
+      <!--
+      <input
+        type="email"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Search..."
+        (input)="searchProducts($event)"
+        [value]="searchValue"
+      />
+      -->
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Search..."
+        [(ngModel)]="searchValue"
+      />
+      <!-- value attr is used to assign the inputValue to searchBar -->
+    </div>
+    <!-- {{ searchValue }} -->
+  </div>
+  <!-- -------------------------- -->
+  <div class="row">
+    <div class="col">
+      <!-- range finder -->
+      <label for="customRange3" class="form-label">Range</label>
+      <input
+        type="range"
+        class="form-range"
+        min="0"
+        max="5"
+        step="0.5"
+        id="customRange3"
+        [(ngModel)]="rangeFinder"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <!-- button group -->
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          [class.selected-category]="selectedCategory === 'All'"
+          (click)="filterProducts()"
+        >
+          All
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          *ngFor="let category of categories"
+          [class.selected-category]="selectedCategory === 'category'"
+          (click)="filterProducts(category)"
+        >
+          {{ category | titlecase }}
+        </button>
+        <!--          <button
+          type="button"
+          class="btn btn-outline-primary"
+          [class.selected-category]="selectedCategory === 'TV'"
+          (click)="filterProducts('TV')"
+        >
+          TV
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          [class.selected-category]="selectedCategory === 'Washing Machine'"
+          (click)="filterProducts('Washing Machine')"
+        >
+          Washing Machine
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          [class.selected-category]="selectedCategory === 'Watch'"
+          (click)="filterProducts('Watch')"
+        >
+          Watch
+        </button>
+        -->
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="!loading; else noProducts">
+    <div class="row">
+      <div
+        class="col d-flex justify-content-center mt-3"
+        *ngFor="let product of filteredProducts | slice: startIndex:endIndex"
+      >
+        <div
+          class="card"
+          [style.width.rem]="18"
+          [class.featured]="product.featured"
+          [ngClass]="classList"
+          [ngStyle]="styleList"
+          [attr.aria-label]="'card'"
+        >
+          <!-- [style.height.rem]="25" -->
+          <img
+            [src]="product.image"
+            class="card-img-top"
+            [alt]="product.name"
+          />
+          <div class="card-body">
+            <h2 class="card-title">
+              <a [routerLink]="['/products', product.id]">
+                {{ product.name | uppercase }}
+              </a>
+            </h2>
+            <h6 class="card-title">
+              {{ product.code | convertToSpaces: "-":"/" }}
+            </h6>
+            <h6 class="card-title" title="{{ product.description }}">
+              {{ product.description | slice: 0:20 }}
+            </h6>
+            <h6 class="card-title">
+              {{ product.price | currency: "INR":"Rs ":"1.0-2" }}
+            </h6>
+            <p class="card-title">
+              <strong>Rating </strong>:
+              <app-star
+                [rating]="product.rating"
+                (ratingClick)="onRatingClick($event)"
+              ></app-star>
+              <button class="btn btn-primary" (click)="product.rating = 2">
+                change rating
+              </button>
+            </p>
+            <p class="card-title">
+              {{ product.publishDate | date: "dd-MM-yy" }}
+            </p>
+            <a class="btn btn-primary" role="button" (click)="addToCart()"
+              >Add to Cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pagination -->
+    <br />
+    <div class="btn-group me-2" role="group" aria-label="Second group">
+      <button type="button" class="btn btn-secondary" (click)="firstPage()">
+        1
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="secondPage()">
+        2
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="thirdPage()">
+        3
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #noProducts> Loading Products... </ng-template>
+
+  <!-- error Message -->
+  <div class="row" *ngIf="errorMessage">
+    <div class="col">
+      <div class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- {{ filteredProducts | json }} -->
+
+<!-- event binding -->
+
+<!-- wrap that event inside of round bracket  -->
+
+<!-- eg:- (click)  -->
+
+<!-- selecting class variable from HTML to manipulate ->$event -->
+
+<!-- | json -> json pipe usefull for debugging -->

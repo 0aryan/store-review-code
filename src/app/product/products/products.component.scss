@@ -1,0 +1,43 @@
+/* component based styling */
+
+.card-img-top {
+  height: 18rem;
+}
+
+.featured {
+  background-color: #212529;
+}
+
+.class-1 {
+  font-style: italic;
+}
+
+/* button */
+
+.upper-button {
+  padding: 10px;
+}
+
+.btn-outline-primary {
+  background-color: #212529;
+  color: #ffffff;
+  border-color: #000;
+}
+
+.btn-outline-primary:hover {
+  background-color: #555;
+}
+
+.selected-category {
+  color: #fff;
+  background-color: #212529;
+  border-color: #000;
+}
+
+/* ---------pagination button-------------*/
+
+.btn-secondary {
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+}

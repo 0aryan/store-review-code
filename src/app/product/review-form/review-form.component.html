@@ -1,0 +1,68 @@
+<form
+  class="mt-5"
+  (ngSubmit)="reviewForm.valid && onSubmit()"
+  #reviewForm="ngForm"
+>
+  <div class="row">
+    <div class="col-6">
+      <div class="mb-3">
+        <label for="author" class="form-label">Author Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="author"
+          [(ngModel)]="reviewFormModel.author"
+          name="author"
+          required
+          #name="ngModel"
+        />
+      </div>
+      <div *ngIf="name.dirty && name.invalid">Author name is required</div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Enter Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          [(ngModel)]="reviewFormModel.email"
+          name="email"
+          required
+          #email="ngModel"
+        />
+      </div>
+      <div *ngIf="email.dirty && email.invalid">email is required</div>
+      <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <select
+          class="form-select"
+          id="rating"
+          [(ngModel)]="reviewFormModel.rating"
+          name="rating"
+          required
+          #rating="ngModel"
+        >
+          <option [value]="rating" *ngFor="let rating of ratings">
+            {{ rating }} star(s)
+          </option>
+        </select>
+      </div>
+      <div *ngIf="rating.dirty && rating.invalid">Rating is required</div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Enter description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          [(ngModel)]="reviewFormModel.description"
+          name="description"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="reviewForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
